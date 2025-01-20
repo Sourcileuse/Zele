@@ -1,5 +1,4 @@
 #include "Charac.h"
-#include <string>
 using namespace std;
 
 
@@ -7,7 +6,11 @@ using namespace std;
 Charac::Charac(int id, string datafile){
     this->id = id;
     string line = FindCharac(id, datafile);
-    cout << line.split() << endl;
+    vector<string> L = split_sentence(line);
+    this->name = L[1];
+    this->sp = stoi(L[2]);
+    this->x = 0;
+    this->y = 0;
 
 }
 
@@ -42,3 +45,14 @@ ostream & operator<< (ostream &out, const Charac & C){
     return out;
 }
 
+vector<string> split_sentence(string sen) {
+  
+    stringstream ss(sen);
+    string word;
+    vector<string> words;
+    while (ss >> word) {
+        words.push_back(word);
+    }
+    
+    return words;
+}

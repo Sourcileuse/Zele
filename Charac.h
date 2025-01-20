@@ -5,6 +5,8 @@ using namespace std;
 #include <iostream>
 #include <fstream>
 #include <charconv>
+#include <vector>
+#include <sstream>
 
 
 class Charac{
@@ -21,6 +23,8 @@ class Charac{
 };
 
 string FindCharac(int id, string datafile);
+vector<string> split_sentence(string sen);
+
 
 
 #endif
